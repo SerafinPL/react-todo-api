@@ -1,9 +1,9 @@
 
-
+import axios from '../../axios';
 import React, {useEffect} from 'react'
 import {atom, selector, useRecoilState} from 'recoil';
 
-import { Button } from 'theme-ui'
+import { Button, Input } from 'theme-ui'
 
  const listState = atom({
     key: 'listState',
@@ -26,12 +26,31 @@ const Main = ({todo}) => {
         <p key={todoItem.id} >{todoItem.title}</p>
       ));
 
-    }
+  }
+
+  const createToDo = () => {
+    axios.post('/users/1292/todos', {"completed":"false", "title":"wpis 4", "user_id":"1292", })
+    .then(res => {
+      
+      console.log(res)
+    })
+    .catch(err => console.log(err));
+  }
+
+  const createUser = () => {
+    axios.post('/users', {"name":"Kuba Koder", "gender":"Male", "email":"kk@kk2.com.pl", "status":"Active"})
+    .then(res => {
+      
+      console.log(res)
+    })
+    .catch(err => console.log(err));
+  }
 
     return(
     	<React.Fragment>
     		{view}
-        <Button>New User</Button>
+    		<Input />
+        <Button onClick={createToDo}>New Task</Button>
     	</React.Fragment>);
 
 }
