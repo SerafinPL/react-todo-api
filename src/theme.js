@@ -29,6 +29,7 @@ export default {
     background: '#fff',
     primary: '#2ae37d',
     secondary: '#00cc47',
+    secondaryDark: '#33ff7a',
     muted: '#ead5d5'
   },
   buttons: {
@@ -46,10 +47,14 @@ export default {
     secondary: {
       color: 'background',
       bg: 'secondary',
+      '&:hover': {
+        bg: 'secondaryDark',
+      },
     },
-    
+    cursor: 'pointer',
+
   },
-  
+
   a: {
       color: '#000',
       textDecoration: 'none'

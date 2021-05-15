@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react'
 import {atom, selector, useRecoilState} from 'recoil';
 
-import { Container, Checkbox, Text, Label } from 'theme-ui'
+import { Container, Checkbox, Text, Label,Button  } from 'theme-ui'
 
  
 
@@ -13,7 +13,11 @@ const Task = ({task}) => {
     	<Container  bg="muted">
         <Label>
           <Checkbox defaultChecked={task.completed} />
-          <Text>{task.title}</Text>
+          <Text sx={{
+            flexGrow: 1,
+          }}>{task.title}</Text>
+          <Button variant="secondary">Edytuj</Button>
+          <Button variant="secondary">Usuń</Button>
         </Label>
         
       </Container>

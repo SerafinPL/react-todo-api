@@ -18,22 +18,7 @@ import theme from './theme'
 const AddTask = React.lazy( () => import('./components/AddTask/AddTask') );
 
 const App = () => {
-
-  const [list, setList] = useState(null);
-
-  useEffect(() =>{
-    axios.get('/users/1292/todos')
-    .then(res => {
-      setList(res.data.data);
-      console.log(res.data.data)
-    })
-    .catch(err => console.log(err));
-
-  }, []);
-
   
-
-    
   
   return (
     <RecoilRoot>
@@ -50,7 +35,7 @@ const App = () => {
               )}
           />
           <Route path='/' exact render={() =>(
-                <Main todo={list}/>
+                <Main />
               )} 
           />
           <Redirect to='/' />

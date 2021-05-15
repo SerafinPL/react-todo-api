@@ -15,19 +15,19 @@ import {Redirect} from 'react-router-dom';
 const AddTask = props => {
 
   const [input, setInput] = useRecoilState(listState);
-  let redirect = null;
+  const [redirect, setRedirect] = useState(null)
 
-  const createToDo = (title) => {
+  const createToDo = () => {
     axios.post('/users/1292/todos', {"completed":"false", "title":input, "user_id":"1292", })
     .then(res => {
-      
+      setInput('');
       console.log(res);
-      redirect = <Redirect to='/' />;
+      setRedirect(<Redirect to='/' />);
     })
     .catch(err => console.log(err));
   }
 
-  console.log(input);
+  console.log(redirect);
 
 
 
@@ -35,7 +35,7 @@ const AddTask = props => {
     	<Container  bg="muted">
       {redirect}
         <Input value={input} onChange={(event) => setInput(event.target.value)} />
-        <Button onClick={() => createToDo(input)}>Dodaj zadanie</Button>
+        <Button onClick={() => createToDo()}>Dodaj zadanie</Button>
       </Container>
   );
 
