@@ -8,14 +8,14 @@ import Task from '../Task/Task';
 
 import { Button, Input } from 'theme-ui'
 
- const listState = atom({
-    key: 'listState',
+ const listStateMain = atom({
+    key: 'listStateMain',
     default: [],
   });
 
 const Main = ({todo}) => {
 
-  const [todoList, setTodoList] = useRecoilState(listState);
+  const [todoList, setTodoList] = useRecoilState(listStateMain);
 
 	let view = <p>loading...</p>;
 
@@ -29,15 +29,6 @@ const Main = ({todo}) => {
         <Task key={todoItem.id} task={todoItem} ></Task>
       ));
 
-  }
-
-  const createToDo = () => {
-    axios.post('/users/1292/todos', {"completed":"false", "title":"wpis 4", "user_id":"1292", })
-    .then(res => {
-      
-      console.log(res)
-    })
-    .catch(err => console.log(err));
   }
 
   const createUser = () => {

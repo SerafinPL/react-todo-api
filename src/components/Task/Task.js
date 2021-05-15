@@ -3,12 +3,9 @@ import {atom, selector, useRecoilState} from 'recoil';
 
 import { Container, Checkbox, Text, Label } from 'theme-ui'
 
- const listState = atom({
-    key: 'listState',
-    default: [],
-  });
-
  
+
+
 
 const Task = ({task}) => {
 

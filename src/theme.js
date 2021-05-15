@@ -47,8 +47,9 @@ export default {
       color: 'background',
       bg: 'secondary',
     },
-
+    
   },
+  
   a: {
       color: '#000',
       textDecoration: 'none'
