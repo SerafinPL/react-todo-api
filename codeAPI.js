@@ -1,4 +1,6 @@
-const createUser = () => {
+
+
+<Input />const createUser = () => {
     axios.post('/users', {"name":"Kuba Koder", "gender":"Male", "email":"kk@kk2.com.pl", "status":"Active"})
     .then(res => {
       
@@ -24,3 +26,5 @@ const createUser = () => {
     })
     .catch(err => console.log(err));
   }
+
+  <Input />

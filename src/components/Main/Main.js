@@ -2,6 +2,7 @@
 import axios from '../../axios';
 import React, {useEffect} from 'react'
 import {atom, selector, useRecoilState} from 'recoil';
+import Task from '../Task/Task'
 
 import { Button, Input } from 'theme-ui'
 
@@ -23,7 +24,7 @@ const Main = ({todo}) => {
 
 	if (todoList) {
       view = todoList.map((todoItem) => (
-        <p key={todoItem.id} >{todoItem.title}</p>
+        <Task key={todoItem.id} task={todoItem} ></Task>
       ));
 
   }
@@ -49,9 +50,9 @@ const Main = ({todo}) => {
     return(
     	<React.Fragment>
     		{view}
-    		<Input />
-        <Button onClick={createToDo}>New Task</Button>
-    	</React.Fragment>);
+    		
+        <Button onClick={createToDo}>Dodaj zadanie</Button>
+      </React.Fragment>);
 
 }
 

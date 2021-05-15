@@ -37,12 +37,17 @@ export default {
       bg: 'primary',
       '&:hover': {
         bg: 'text',
-      }
+      },
+      width: '100%',
+      '@media screen and (min-width: 40em)': {
+        width: '50%',
+      },
     },
     secondary: {
       color: 'background',
       bg: 'secondary',
     },
+
   },
   styles: {
     root: {

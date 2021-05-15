@@ -1,19 +1,21 @@
 import React, {useEffect} from 'react'
 import {atom, selector, useRecoilState} from 'recoil';
 
+import { Container } from 'theme-ui'
+
  const listState = atom({
     key: 'listState',
     default: [],
   });
 
-const Main = ({todo}) => {
+const Task = ({task}) => {
 
   return(
-    	<React.Fragment>
-    		task
-    	</React.Fragment>
+    	<Container  bg="muted">
+        Centered container
+      </Container>
   );
 
 }
 
-export default Main;
+export default Task;
