@@ -1,12 +1,20 @@
 
 import axios from '../../axios';
-import React, {useEffect, useState} from 'react'
+import React, {useEffect, useState, Suspense} from 'react'
 import {atom, selector, useRecoilState} from 'recoil';
-import Task from '../Task/Task';
+
+import List from '../List/List';
+
+
+import Navi from '../Navi/Navi'
+
+import {Route, HashRouter, Switch, Redirect} from 'react-router-dom';
 
 
 
-import { Button, Input } from 'theme-ui'
+import { Button, Input, Spinner } from 'theme-ui';
+
+const AddTask = React.lazy( () => import('../AddTask/AddTask') );
 
  const listStateMain = atom({
     key: 'listStateMain',
@@ -14,6 +22,7 @@ import { Button, Input } from 'theme-ui'
   });
 
 const Main = ({todo}) => {
+
 
 	const [todoList, setTodoList] = useRecoilState(listStateMain);
 	
@@ -30,13 +39,22 @@ const Main = ({todo}) => {
   }, []);
 
   
-
+  let link;
 	let view = <p>loading...</p>;
 
 
-	if (todoList) {
-      view = todoList.map((todoItem) => (
-        <Task key={todoItem.id} task={todoItem} ></Task>
+	
+
+  if (todoList) {
+      link = todoList.map((todoItem) => (
+        <Route path={'/' +todoItem.id} 
+            render={() => (
+                <Suspense fallback={<Spinner/>}>
+                  <AddTask/>
+                </Suspense> 
+              )}
+          />
+
       ));
 
   }
@@ -52,7 +70,30 @@ const Main = ({todo}) => {
 
     return(
     	<React.Fragment>
-    		{view}
+    	<HashRouter>
+        <Navi />
+        <Switch>
+          <Route path='/newtask' //component={Auth} 
+            render={() => (
+                <Suspense fallback={<Spinner/>}>
+                  <AddTask/>
+                </Suspense> 
+              )}
+          />
+          <Route path='/' exact render={() =>(
+                <Suspense fallback={<Spinner/>}>
+                  <List list={todoList}/>
+                </Suspense> 
+              )} 
+          />
+          {link}
+          <Redirect to='/' />
+              
+        </Switch>
+        
+      </HashRouter>
+    	
+    		
     		
         
       </React.Fragment>);

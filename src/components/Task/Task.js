@@ -4,7 +4,7 @@ import {atom, selector, useRecoilState} from 'recoil';
 import { Container, Checkbox, Text, Label,Button  } from 'theme-ui'
 
  
-
+import {NavLink} from 'react-router-dom';
 
 
 const Task = ({task}) => {
@@ -13,11 +13,13 @@ const Task = ({task}) => {
     	<Container  bg="muted">
         <Label>
           <Checkbox defaultChecked={task.completed} />
-          <Text sx={{
-            flexGrow: 1,
-          }}>{task.title}</Text>
-          <Button variant="secondary">Edytuj</Button>
-          <Button variant="secondary">Usuń</Button>
+
+          <NavLink to={'/'+task.id}>
+            <Text sx={{
+              flexGrow: 1,
+            }}>{task.title}</Text>
+          </NavLink>
+          
         </Label>
         
       </Container>

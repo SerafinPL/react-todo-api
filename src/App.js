@@ -24,24 +24,7 @@ const App = () => {
     <RecoilRoot>
       <ThemeProvider theme={theme}>
       
-      <HashRouter>
-        <Navi />
-        <Switch>
-          <Route path='/newtask' //component={Auth} 
-            render={() => (
-                <Suspense fallback={<Spinner/>}>
-                  <AddTask/>
-                </Suspense> 
-              )}
-          />
-          <Route path='/' exact render={() =>(
-                <Main />
-              )} 
-          />
-          <Redirect to='/' />
-              
-        </Switch>
-      </HashRouter>
+      <Main />
 
 
         
