@@ -2,7 +2,9 @@
 import axios from '../../axios';
 import React, {useEffect} from 'react'
 import {atom, selector, useRecoilState} from 'recoil';
-import Task from '../Task/Task'
+import Task from '../Task/Task';
+
+
 
 import { Button, Input } from 'theme-ui'
 
@@ -51,7 +53,7 @@ const Main = ({todo}) => {
     	<React.Fragment>
     		{view}
     		
-        <Button onClick={createToDo}>Dodaj zadanie</Button>
+        
       </React.Fragment>);
 
 }

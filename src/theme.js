@@ -49,6 +49,10 @@ export default {
     },
 
   },
+  a: {
+      color: '#000',
+      textDecoration: 'none'
+    },
   styles: {
     root: {
       fontFamily: 'body',
@@ -56,9 +60,7 @@ export default {
       fontWeight: 'body'
     },
     
-    a: {
-      color: 'primary'
-    },
+    
     
     code: {
       fontFamily: 'monospace',
