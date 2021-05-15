@@ -15,7 +15,7 @@ import { Spinner } from 'theme-ui';
 import { ThemeProvider } from 'theme-ui'
 import theme from './theme'
 
-const AddTask = React.lazy( () => import('./components/AddTask/AddTask') );
+
 
 const App = () => {
   
