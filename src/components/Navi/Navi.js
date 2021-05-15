@@ -8,7 +8,7 @@ import {  Button, Container } from 'theme-ui';
 const Navi = props => {
 
   return(
-    <Container  bg="muted">
+    <Container bg="muted">
     	
         <NavLink to='/newtask' 
 				//activeClassName={classes.active}

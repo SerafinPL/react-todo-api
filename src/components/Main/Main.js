@@ -5,8 +5,7 @@ import {atom, selector, useRecoilState} from 'recoil';
 
 import List from '../List/List';
 
-
-import Navi from '../Navi/Navi'
+import Navi from '../Navi/Navi';
 
 import {Route, HashRouter, Switch, Redirect} from 'react-router-dom';
 
@@ -15,6 +14,7 @@ import {Route, HashRouter, Switch, Redirect} from 'react-router-dom';
 import { Button, Input, Spinner } from 'theme-ui';
 
 const AddTask = React.lazy( () => import('../AddTask/AddTask') );
+const FullTask = React.lazy( () => import('../FullTask/FullTask') );
 
  const listStateMain = atom({
     key: 'listStateMain',
@@ -50,7 +50,7 @@ const Main = ({todo}) => {
         <Route path={'/' +todoItem.id} 
             render={() => (
                 <Suspense fallback={<Spinner/>}>
-                  <AddTask/>
+                  <FullTask task={todoItem}/>
                 </Suspense> 
               )}
           />
