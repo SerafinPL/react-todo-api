@@ -1,11 +1,13 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, Suspense} from 'react'
 import {atom, selector, useRecoilState} from 'recoil';
 
-import { Container, Checkbox, Text, Label,Button  } from 'theme-ui'
 
- 
+
+ import { Container, Checkbox, Text, Label,Button, Spinner  } from 'theme-ui';
+ import {Route, Switch, Redirect} from 'react-router-dom';
 import {NavLink} from 'react-router-dom';
 
+const FullTask = React.lazy( () => import('../FullTask/FullTask') );
 
 const Task = ({task}) => {
 
