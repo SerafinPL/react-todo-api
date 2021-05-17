@@ -23,11 +23,9 @@ const App = () => {
   return (
     <RecoilRoot>
       <ThemeProvider theme={theme}>
-      
-      <Main />
-
-
-        
+  
+        <Main />
+       
       </ThemeProvider>
     </RecoilRoot>
   );

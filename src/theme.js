@@ -51,6 +51,9 @@ export default {
         bg: 'secondaryDark',
       },
     },
+    triple :{
+      width: '33.33%'
+    },
     cursor: 'pointer',
 
   },

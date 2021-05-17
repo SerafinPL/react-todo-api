@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react'
 import {atom, selector, useRecoilState} from 'recoil';
 
-import { Container, Checkbox, Text, Label,Button  } from 'theme-ui'
+import {Input, Container, Checkbox, Text, Label,Button  } from 'theme-ui'
 
  
 import {NavLink} from 'react-router-dom';
@@ -12,16 +12,23 @@ const FullTask = ({task}) => {
   return(
     	<Container  bg="muted">
         <Label>
-          <Checkbox defaultChecked={task.completed} />
+          <Checkbox checked={task.completed} />
 
-          <NavLink to={'/'+task.id}>
-            <Text sx={{
+          
+            <Input sx={{
               flexGrow: 1,
-            }}>{task.title}</Text>
-          </NavLink>
+            }} value={task.title}/>
+          
           
         </Label>
+
         
+        <Button variant='triple'>Zapisz Zmiany</Button>
+        <Button variant='triple'>Usuń Zadanie</Button>
+        <NavLink to='/' 
+        //activeClassName={classes.active}
+        
+        ><Button variant='triple'>Wróć</Button></NavLink>
       </Container>
   );
 

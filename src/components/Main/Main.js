@@ -7,7 +7,7 @@ import List from '../List/List';
 
 import Navi from '../Navi/Navi';
 
-import {Route,HashRouter, Switch, Redirect} from 'react-router-dom';
+import {NavLink, Route,HashRouter, Switch, Redirect} from 'react-router-dom';
 
 
 
@@ -16,48 +16,74 @@ import { Button, Input, Spinner } from 'theme-ui';
 const AddTask = React.lazy( () => import('../AddTask/AddTask') );
 
 
+const FullTask = React.lazy( () => import('../FullTask/FullTask') );
+
+ const listStateMain = atom({
+    key: 'listStateMain',
+    default: [],
+  });
+
+const Main = () => {
 
 
-const Main = ({todo}) => {
+	const [todoList, setTodoList] = useRecoilState(listStateMain);
+	const [reset, setReset] = useState(0);
+  
 
 
-	
-
-
-
-
-  const createUser = () => {
-    axios.post('/users', {"name":"Kuba Koder", "gender":"Male", "email":"kk@kk2.com.pl", "status":"Active"})
+  useEffect(() =>{
+    axios.get('/users/1292/todos')
     .then(res => {
       
-      console.log(res)
+      setTodoList(res.data.data);
+  
     })
     .catch(err => console.log(err));
-  }
+
+  },[reset]);
+
+	let link;
+
+		if (todoList) {
+      link = todoList.map((todoItem) => (
+        <Route key={todoItem.id} exact path={'/' +todoItem.id} 
+            render={() => (
+                <Suspense fallback={<Spinner/>}>
+                  <FullTask task={todoItem}/>
+                </Suspense> 
+              )}
+          />
+
+      ));
+
+  	}
 
     return(
     	<React.Fragment>
     	<HashRouter>
-        <Navi />
+        
         <Switch>
           <Route path='/newtask' //component={Auth} 
             render={() => (
                 <Suspense fallback={<Spinner/>}>
-                  <AddTask/>
+                  <AddTask newstart={setReset}/>
                 </Suspense> 
               )}
           />
-          <Route path='/' exact render={() =>(
+
+          {link}
+
+          <Route path='/' render={() =>(
                 
-                  <List/>
+                  <List newstart={setReset} list={todoList}/>
                 
               )} 
           />
-          
+                   
           <Redirect to='/' />
               
         </Switch>
-        <Button onClick={createUser}></Button>
+        
       </HashRouter>
     	
     		

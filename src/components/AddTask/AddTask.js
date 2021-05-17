@@ -7,6 +7,8 @@ import { Container, Checkbox, Text, Label, Input, Button } from 'theme-ui'
 
 import {Redirect} from 'react-router-dom';
 
+import {NavLink} from 'react-router-dom';
+
  const listState = atom({
     key: 'listState',
     default: '',
@@ -15,19 +17,20 @@ import {Redirect} from 'react-router-dom';
 const AddTask = props => {
 
   const [input, setInput] = useRecoilState(listState);
-  const [redirect, setRedirect] = useState(null)
+  const [redirect, setRedirect] = useState(null);
+  
 
   const createToDo = () => {
     axios.post('/users/1292/todos', {"completed":"false", "title":input, "user_id":"1292" })
     .then(res => {
       setInput('');
-      console.log(res);
+      props.newstart(input);
       setRedirect(<Redirect to='/' />);
     })
     .catch(err => console.log(err));
   }
 
-  console.log(redirect);
+
 
 
 
@@ -36,6 +39,10 @@ const AddTask = props => {
       {redirect}
         <Input value={input} onChange={(event) => setInput(event.target.value)} />
         <Button onClick={() => createToDo()}>Dodaj zadanie</Button>
+        <NavLink to='/' 
+        //activeClassName={classes.active}
+        exact={props.exact}
+        ><Button>Lista Zadań</Button></NavLink>
       </Container>
   );
 
