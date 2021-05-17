@@ -42,7 +42,7 @@ const Main = () => {
 
   },[reset]);
 
-  
+
 
 	let link;
 
@@ -54,10 +54,8 @@ const Main = () => {
                   <FullTask task={todoItem}/>
                 </Suspense> 
               )}
-          />
-
+        />
       ));
-
   	}
 
     return(
@@ -66,9 +64,9 @@ const Main = () => {
         
         <Switch>
           <Route path='/newtask' //component={Auth} 
-            render={() => (
+            	render={() => (
                 <Suspense fallback={<Spinner/>}>
-                  <AddTask newstart={setReset}/>
+                  <AddTask newstart={setReset} setlist={setTodoList}/>
                 </Suspense> 
               )}
           />
@@ -76,9 +74,7 @@ const Main = () => {
           {link}
 
           <Route path='/' render={() =>(
-                
-                  <List newstart={setReset} list={todoList}/>
-                
+                <List newstart={setReset} list={todoList} setlist={setTodoList}/>
               )} 
           />
                    

@@ -52,7 +52,8 @@ export default {
       },
     },
     triple :{
-      width: '33.33%'
+      width: '31.33%',
+      margin: '1%'
     },
     cursor: 'pointer',
 

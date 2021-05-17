@@ -25,10 +25,12 @@ const List = (props) => {
 
 
 
+
+
   return(
   	<Flex sx={{ flexDirection: 'column'}} bg="muted">
       <Box>
-
+        
       </Box>
       <Box sx={{ flexGrow: 1}}>
         {view}
