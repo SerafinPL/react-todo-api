@@ -36,11 +36,13 @@ const Main = ({todo}) => {
     })
     .catch(err => console.log(err));
 
-  }, []);
+  },[]);
+
 
   
+  
   let link;
-	let view = <p>loading...</p>;
+	
 
 
 	
@@ -81,16 +83,16 @@ const Main = ({todo}) => {
               )}
           />
           <Route path='/' exact render={() =>(
-                <Suspense fallback={<Spinner/>}>
+                
                   <List list={todoList}/>
-                </Suspense> 
+                
               )} 
           />
           {link}
           <Redirect to='/' />
               
         </Switch>
-        
+        <Button onClick={createUser}></Button>
       </HashRouter>
     	
     		

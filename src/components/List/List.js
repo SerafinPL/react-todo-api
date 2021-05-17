@@ -10,17 +10,17 @@ import {NavLink} from 'react-router-dom';
 const List = ({list}) => {
   let view= null;
   if (list) {
-          view = list.map((todoItem) => (
-            <Task key={todoItem.id} task={todoItem} ></Task>
-          ));
+    view = list.map((todoItem) => (
+      <Task key={todoItem.id} task={todoItem} ></Task>
+    ));
 
-        }
+  }
 
   return(
-    	<Container  bg="muted">
-        
-        {view}
-      </Container>
+  	<Container  bg="muted">
+      
+      {view}
+    </Container>
   );
 
 }

@@ -18,7 +18,7 @@ const AddTask = props => {
   const [redirect, setRedirect] = useState(null)
 
   const createToDo = () => {
-    axios.post('/users/1292/todos', {"completed":"false", "title":input, "user_id":"1292", })
+    axios.post('/users/1292/todos', {"completed":"false", "title":input, "user_id":"1292" })
     .then(res => {
       setInput('');
       console.log(res);
