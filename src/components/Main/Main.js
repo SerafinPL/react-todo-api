@@ -29,7 +29,7 @@ const Main = () => {
 
 
   useEffect(() =>{
-    axios.get('/users/1292/todos')
+    axios.get('/users/1292/todos?page=0')
     .then(res => {
       
       setTodoList(res.data.data);

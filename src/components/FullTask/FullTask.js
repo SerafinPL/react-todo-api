@@ -37,7 +37,8 @@ const FullTask = ({task}) => {
   }
 
   const saveChange = () => {
-        const newList = replaceItemAtIndex(todoList, index, {
+
+    const newList = replaceItemAtIndex(todoList, index, {
       ...task,
       title: input,
       completed: check,
@@ -82,10 +83,12 @@ const FullTask = ({task}) => {
         {redirect}
         <Box sx={{
                 flexGrow: 1,
-                display: 'flex'
+                display: 'flex',
+                alignItems: 'center',
               }}>
           <Label sx = {{
-              alignSelf: 'center',
+              
+              alignItems: 'center',
             }}
           >
             <Checkbox checked={check} onChange={event => setCheck(event.target.checked)}/>

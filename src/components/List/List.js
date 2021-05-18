@@ -32,7 +32,7 @@ const List = (props) => {
       <Box>
         search
       </Box>
-      <Box sx={{ flexGrow: 1}}>
+      <Box sx={{ flexGrow: 1, overflowY: 'auto',}}>
         {view}
       </Box>
       <Box>
