@@ -7,25 +7,34 @@ import axios from '../../axios';
 
 import {NavLink} from 'react-router-dom';
 
-
+import {listStateMain} from '../../recoliState';
 
 const Task = ({task, newstart}) => {
 
-
+  const [todoList, setTodoList] = useRecoilState(listStateMain);
+  const index = todoList.findIndex((listItem) => listItem === task);
+  console.log(index);
 
   const clickCheckbox = (checked) => {
     
+    const newList = replaceItemAtIndex(todoList, index, {
+      ...task,
+      completed: checked,
+    });
 
-   
+    setTodoList(newList);
+    
     axios.put('/todos/'+task.id , {"completed":checked, "title":task.title, "user_id":"1292" })
     .then(res => {
       console.log(res);
-      newstart(task.id+checked);
-      
+          
     })
     .catch(err => console.log(err));
   }
-  
+
+  const replaceItemAtIndex = (arr, index, newValue) => {
+    return [...arr.slice(0, index), newValue, ...arr.slice(index + 1)];
+  }
 
   return(
     	<Container  bg="muted">
