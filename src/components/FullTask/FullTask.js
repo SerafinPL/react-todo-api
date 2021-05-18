@@ -16,6 +16,7 @@ const FullTask = ({task}) => {
   const index = todoList.findIndex((listItem) => listItem === task);
 
   const [input, setInput] = useState(task.title);
+  const [check, setCheck] = useState(task.completed);
   const [redirect, setRedirect] = useState(null);
 
   const clickCheckbox = (checked) => {
@@ -35,15 +36,16 @@ const FullTask = ({task}) => {
     .catch(err => console.log(err));
   }
 
-  const changeInput = () => {
+  const saveChange = () => {
         const newList = replaceItemAtIndex(todoList, index, {
       ...task,
       title: input,
+      completed: check,
     });
 
     setTodoList(newList);
 
-    axios.put('/todos/'+task.id , {"completed": task.completed, "title":input, "user_id":"1292" })
+    axios.put('/todos/'+task.id , {"completed": check, "title":input, "user_id":"1292" })
     .then(res => {
       console.log(res);
           
@@ -86,7 +88,7 @@ const FullTask = ({task}) => {
               alignSelf: 'center',
             }}
           >
-            <Checkbox checked={task.completed} onChange={event => clickCheckbox(event.target.checked)}/>
+            <Checkbox checked={check} onChange={event => setCheck(event.target.checked)}/>
               <Input sx={{
                 flexGrow: 1,
               }} value={input} onChange={event => setInput(event.target.value)}/>
@@ -95,7 +97,7 @@ const FullTask = ({task}) => {
           </Label>
         </Box>
         <Box>
-          <Button variant='triple' onClick={changeInput}>Zapisz Zmiany</Button>
+          <Button variant='triple' onClick={saveChange}>Zapisz Zmiany</Button>
           <Button variant='triple' onClick={deleteItem}>Usuń Zadanie</Button>
           <NavLink to='/' ><Button variant='triple'>Wróć</Button></NavLink>
         </Box>
