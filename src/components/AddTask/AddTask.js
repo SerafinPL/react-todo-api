@@ -24,7 +24,7 @@ const AddTask = props => {
     axios.post('/users/1292/todos', {"completed":"false", "title":input, "user_id":"1292" })
     .then(res => {
       setInput('');
-      props.newstart(input);
+      //props.newstart(input);
       console.log(res.data.data);
       setRedirect(<Redirect to='/' />);
     })

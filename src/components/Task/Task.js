@@ -13,8 +13,7 @@ const Task = ({task, newstart}) => {
 
   const [todoList, setTodoList] = useRecoilState(listStateMain);
   const index = todoList.findIndex((listItem) => listItem === task);
-  console.log(index);
-
+  
   const clickCheckbox = (checked) => {
     
     const newList = replaceItemAtIndex(todoList, index, {

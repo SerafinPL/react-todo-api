@@ -52,6 +52,11 @@ export default {
       },
     },
     triple :{
+      color: 'background',
+      bg: 'primary',
+      '&:hover': {
+        bg: 'text',
+      },
       width: '31.33%',
       margin: '1%'
     },
