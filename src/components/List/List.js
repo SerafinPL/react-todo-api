@@ -28,9 +28,9 @@ const List = (props) => {
 
 
   return(
-  	<Flex sx={{ flexDirection: 'column'}} bg="muted">
+  	<Flex sx={{ flexDirection: 'column', height: '100vh'}} bg="muted">
       <Box>
-        
+        search
       </Box>
       <Box sx={{ flexGrow: 1}}>
         {view}

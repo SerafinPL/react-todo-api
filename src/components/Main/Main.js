@@ -9,7 +9,7 @@ import Navi from '../Navi/Navi';
 
 import {NavLink, Route,HashRouter, Switch, Redirect} from 'react-router-dom';
 
-
+import {listStateMain} from '../../recoliState';
 
 import { Button, Input, Spinner } from 'theme-ui';
 
@@ -18,10 +18,7 @@ const AddTask = React.lazy( () => import('../AddTask/AddTask') );
 
 const FullTask = React.lazy( () => import('../FullTask/FullTask') );
 
- const listStateMain = atom({
-    key: 'listStateMain',
-    default: [],
-  });
+
 
 const Main = () => {
 
