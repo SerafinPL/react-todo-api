@@ -1,4 +1,4 @@
-import {atom, selector, useRecoilState} from 'recoil';
+import {atom} from 'recoil';
 
 
 export const listStateMain = atom({

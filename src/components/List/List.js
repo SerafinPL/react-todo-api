@@ -1,7 +1,7 @@
 import React, {useEffect,Suspense} from 'react'
 import {atom, selector, useRecoilState} from 'recoil';
 
-import { Flex,Box, Container, Checkbox, Text, Label,Button, Spinner  } from 'theme-ui'
+import { Flex,Box, Container, Checkbox, Text, Label,Button, Spinner, Input  } from 'theme-ui'
 import Task from '../Task/Task';
  
 import axios from '../../axios';
@@ -10,15 +10,18 @@ import {NavLink} from 'react-router-dom';
 
 import {Route, Switch, Redirect} from 'react-router-dom';
 
+import {listStateMain} from '../../recoliState';
 
 
 const List = (props) => {
   
-  let view= null;
+  
+
+  let view = <Spinner/>;
 
   if (props.list) {
     view = props.list.map((todoItem) => (
-      <Task newstart={props.newstart} key={todoItem.id} task={todoItem} ></Task>
+      <Task  key={todoItem.id} task={todoItem} ></Task>
     ));
 
   }
@@ -26,7 +29,7 @@ const List = (props) => {
   return(
   	<Flex sx={{ flexDirection: 'column', height: '100vh', position: 'fixed', width: '100vw',}} bg="muted">
       <Box>
-        search
+        <Input placeholder='Wyszukaj'/>
       </Box>
       <Box sx={{ flexGrow: 1, overflowY: 'auto',}}>
         {view}

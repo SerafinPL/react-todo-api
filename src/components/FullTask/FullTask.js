@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
-import {atom, selector, useRecoilState} from 'recoil';
+import {atom, selector, useRecoilState, useRecoilValue} from 'recoil';
 
-import {Flex, Box,Input, Container, Checkbox, Text, Label,Button  } from 'theme-ui'
+import {Flex, Box,Input, Container, Checkbox, Text, Paragraph,Label,Button  } from 'theme-ui'
 
 import axios from '../../axios';
  
@@ -10,14 +10,35 @@ import {NavLink, Redirect} from 'react-router-dom';
 import {listStateMain} from '../../recoliState';
 
 
+const textState = atom({
+  key: 'textState', 
+  default: '', 
+});
+
+const charCountState = selector({
+  key: 'charCountState', 
+  get: ({get}) => {
+    const text = get(textState);
+
+    return text.length;
+  },
+});
+
+
 const FullTask = ({task}) => {
+
+
 
   const [todoList, setTodoList] = useRecoilState(listStateMain);
   const index = todoList.findIndex((listItem) => listItem === task);
 
-  const [input, setInput] = useState(task.title);
+  const [input, setInput] = useRecoilState(textState);
   const [check, setCheck] = useState(task.completed);
   const [redirect, setRedirect] = useState(null);
+
+  useEffect(() => {
+    setInput(task.title);
+  },[])
 
   const clickCheckbox = (checked) => {
     
@@ -77,6 +98,7 @@ const FullTask = ({task}) => {
     return [...arr.slice(0, index), ...arr.slice(index + 1)];
   }
 
+  const count = useRecoilValue(charCountState);
 
   return(
     	<Flex sx={{height: '100vh', flexDirection: 'column'}} bg="muted">
@@ -85,6 +107,8 @@ const FullTask = ({task}) => {
                 flexGrow: 1,
                 display: 'flex',
                 alignItems: 'center',
+                flexDirection: 'column',
+                justifyContent: 'center',
               }}>
           <Label sx = {{
               
@@ -98,7 +122,9 @@ const FullTask = ({task}) => {
             
             
           </Label>
+          <Paragraph sx={{ alignSelf: 'end'}}>Ilość znaków: {count}</Paragraph>
         </Box>
+        
         <Box>
           <Button variant='triple' onClick={saveChange}>Zapisz Zmiany</Button>
           <Button variant='triple' onClick={deleteItem}>Usuń Zadanie</Button>

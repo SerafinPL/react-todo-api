@@ -11,6 +11,9 @@ import {listStateMain} from '../../recoliState';
 
 const Task = ({task}) => {
 
+  
+  
+
   const [todoList, setTodoList] = useRecoilState(listStateMain);
   const index = todoList.findIndex((listItem) => listItem === task);
   

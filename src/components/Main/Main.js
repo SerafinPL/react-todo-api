@@ -18,19 +18,13 @@ const AddTask = React.lazy( () => import('../AddTask/AddTask') );
 
 const FullTask = React.lazy( () => import('../FullTask/FullTask') );
 
-
-
 const Main = () => {
 
 
 	const [todoList, setTodoList] = useRecoilState(listStateMain);
 	const [reset, setReset] = useState(0);
   
-  const allData = ( ) => {
-
-  }
-
-
+  
   useEffect(() =>{
     axios.get('/users/1292/todos')
     .then(response => {
@@ -57,7 +51,7 @@ const Main = () => {
     })
     .catch(err => console.log(err));
 
-  },[reset]);
+  },[]);
 
 
 
@@ -91,7 +85,7 @@ const Main = () => {
           {link}
 
           <Route path='/' render={() =>(
-                <List newstart={setReset} list={todoList} setlist={setTodoList}/>
+                <List  list={todoList} setlist={setTodoList}/>
               )} 
           />
                    
