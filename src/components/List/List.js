@@ -23,12 +23,8 @@ const List = (props) => {
 
   }
 
-
-
-
-
   return(
-  	<Flex sx={{ flexDirection: 'column', height: '100vh'}} bg="muted">
+  	<Flex sx={{ flexDirection: 'column', height: '100vh', position: 'fixed', width: '100vw',}} bg="muted">
       <Box>
         search
       </Box>
@@ -37,10 +33,8 @@ const List = (props) => {
       </Box>
       <Box>
         <NavLink to='/newtask' 
-        //activeClassName={classes.active}
-        
+             
         ><Button>Dodaj Zadanie</Button></NavLink>
-
       </Box>
     </Flex>
   );

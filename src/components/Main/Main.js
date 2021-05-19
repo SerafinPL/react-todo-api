@@ -57,7 +57,7 @@ const Main = () => {
     })
     .catch(err => console.log(err));
 
-  },[]);
+  },[reset]);
 
 
 
