@@ -13,14 +13,16 @@ import {Route, Switch, Redirect} from 'react-router-dom';
 import {listStateMain} from '../../recoliState';
 
 
+
+
 const List = (props) => {
   
-  
+  const [todoList, setTodoList] = useRecoilState(listStateMain);
 
-  let view = <Spinner/>;
+  let view = <Spinner sx={{margin: '0 auto',}}/>;
 
-  if (props.list) {
-    view = props.list.map((todoItem) => (
+  if (todoList.length > 0) {
+    view = todoList.map((todoItem) => (
       <Task  key={todoItem.id} task={todoItem} ></Task>
     ));
 
@@ -28,10 +30,10 @@ const List = (props) => {
 
   return(
   	<Flex sx={{ flexDirection: 'column', height: '100vh', position: 'fixed', width: '100vw',}} bg="muted">
-      <Box>
+      <Box sx={{margin: '5px'}}>
         <Input placeholder='Wyszukaj'/>
       </Box>
-      <Box sx={{ flexGrow: 1, overflowY: 'auto',}}>
+      <Box sx={{ flexGrow: 1, overflowY: 'auto', textAlign: 'center'}}>
         {view}
       </Box>
       <Box>
