@@ -26,18 +26,38 @@ const Main = () => {
 	const [todoList, setTodoList] = useRecoilState(listStateMain);
 	const [reset, setReset] = useState(0);
   
+  const allData = ( ) => {
+
+  }
 
 
   useEffect(() =>{
-    axios.get('/users/1292/todos?page=0')
-    .then(res => {
-      
-      setTodoList(res.data.data);
-  
+    axios.get('/users/1292/todos')
+    .then(response => {
+
+      let data = [...response.data.data];
+      let moreData = [...data];
+      if ( response.data.meta.pagination.pages > 1) {
+      	
+      	for (let i = 2; i <= response.data.meta.pagination.pages; i++){
+      		axios.get('/users/1292/todos?page=' + i)
+      		.then(res => {
+      			
+      			moreData = [...moreData, ...res.data.data]
+      	
+      			setTodoList(moreData);
+      			
+      		})
+      		.catch(err => console.log(err));
+      	}
+      	
+      } else {
+      	setTodoList(data);
+      }
     })
     .catch(err => console.log(err));
 
-  },[reset]);
+  },[]);
 
 
 
