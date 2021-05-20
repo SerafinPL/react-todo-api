@@ -86,7 +86,7 @@ const List = (props) => {
 
   return(
   	<Flex sx={{ flexDirection: 'column', height: '100vh', position: 'fixed', width: '100vw',}} bg="muted">
-      <Box sx={{padding: '5px', textAlign: 'right', borderBottom: '1px solid #442929', bg: '#cfe3cd'}}>
+      <Box sx={{padding: '5px', textAlign: 'right', borderBottom: '1px solid #442929', bg: 'primary'}}>
         <Input placeholder='Wyszukaj' value={searchInput} onChange={event => setSearchInput(event.target.value)}/>
         <Select value={selectView} onChange={(event) => {setSelectView(event.target.value)}}>
           <option>Wszystkie</option>

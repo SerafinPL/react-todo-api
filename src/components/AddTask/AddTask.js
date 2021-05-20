@@ -3,7 +3,7 @@ import {atom, selector, useRecoilState} from 'recoil';
 
 import axios from '../../axios';
 
-import {Flex, Box, Container, Checkbox, Text, Label, Input, Button, Spinner } from 'theme-ui'
+import {Flex, Box, Container, Checkbox, Text, Label, Input, Button, Spinner, Heading } from 'theme-ui'
 
 import {Redirect} from 'react-router-dom';
 
@@ -52,9 +52,7 @@ const AddTask = props => {
     	<Flex sx={{height: '100vh', flexDirection: 'column',  }} bg="muted">
         {redirect}
         
-        <Flex>
-          <Text sx={{margin: '0 auto'}}>Dodawanie Zadania</Text>
-        </Flex>
+        <Box sx={{height: '77px', padding: '5px', textAlign: 'center', borderBottom: '1px solid #442929', bg: 'primary'}}><Heading>Dodawanie zadania</Heading></Box>
         
         <Flex sx={{
                 flexGrow: 1,

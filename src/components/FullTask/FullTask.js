@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import {atom, selector, useRecoilState, useRecoilValue} from 'recoil';
 
-import {Flex, Box,Input, Container, Checkbox, Text, Paragraph,Label,Button,Textarea  } from 'theme-ui'
+import {Flex, Box,Input, Container, Checkbox, Text, Paragraph,Label,Button,Textarea,Heading  } from 'theme-ui'
 
 import axios from '../../axios';
  
@@ -103,6 +103,7 @@ const FullTask = ({task}) => {
   return(
     	<Flex sx={{height: '100vh', flexDirection: 'column'}} bg="muted">
         {redirect}
+        <Box sx={{height: '77px', padding: '5px', textAlign: 'center', borderBottom: '1px solid #442929', bg: 'primary'}}><Heading>Edycja zadania</Heading></Box>
         <Box sx={{
                 flexGrow: 1,
                 display: 'flex',

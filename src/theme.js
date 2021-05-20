@@ -22,7 +22,7 @@ export default   {
   },
   lineHeights: {
     body: 1.5,
-    heading: 1.125
+    heading: 2.5,
   },
   colors: {
     text: '#442929',
@@ -38,12 +38,16 @@ export default   {
       background: '#e2f4df',
       
     },
+    textarea: {
+      background: '#e2f4df',
+      
+    },
     input: {
       background: '#e2f4df',
 
 
-      '@media screen and (min-width: 1024px)': {
-        width: '50%',
+      '@media screen and (min-width: 500px)': {
+        width: '75%',
         float: 'left',
       },
 
@@ -87,12 +91,11 @@ export default   {
       '&:hover': {
         bg: 'text',
       },
-      width: '80%',
+      
       margin: '1%',
 
-      '@media screen and (min-width: 1024px)': {
-        width: '50%',
-        float: 'left',
+      '@media screen and (min-width: 500px)': {
+        
       },
     },
     cursor: 'pointer',
