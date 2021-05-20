@@ -64,12 +64,12 @@ const AddTask = props => {
               }}>
           {loading ? 
             <React.Fragment>  
-              <Spinner/><Text>Dodaje Zadanie</Text> 
+              <Spinner /><Text>Dodaje Zadanie</Text> 
             </React.Fragment>  
             :
             <React.Fragment>  
-              <Input value={input} onChange={(event) => setInput(event.target.value)} />
-              <Button onClick={() => createToDo()}>Dodaj zadanie</Button>
+              <Input sx={{width:'80%',}}value={input} onChange={(event) => setInput(event.target.value)} />
+              <Button variant='add' onClick={() => createToDo()}>Dodaj zadanie</Button>
             </React.Fragment>}
         </Flex>
         <Flex>

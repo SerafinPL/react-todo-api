@@ -1,7 +1,7 @@
 import React, {useEffect,Suspense,useState} from 'react'
 import {atom, selector, useRecoilState, useRecoilValue} from 'recoil';
 
-import { Flex,Box, Container, Checkbox, Text, Label,Button, Spinner, Input,Paragraph, Select  } from 'theme-ui'
+import { Flex,Box, Container, Checkbox, Text, Label,Button, Spinner, Input,Paragraph, Select ,Message } from 'theme-ui'
 import Task from '../Task/Task';
  
 import axios from '../../axios';
@@ -23,7 +23,7 @@ const searchState = selector({
     const list = get(listStateMain);
     const searchQuery = get(todoListSearch);
     
-    return (list.filter(item => item.title.search(searchQuery) !== -1));
+    return (list.filter(item => item.title.toLowerCase().search(searchQuery.toLowerCase()) !== -1));
   },
 });
 
@@ -34,9 +34,7 @@ const ListStats = selector({
     const totalNum = list.length;
     const totalCompletedNum = list.filter((item) => item.completed).length;
     const totalUncompletedNum = totalNum - totalCompletedNum;
-    console.log(totalNum,
-      totalCompletedNum,
-      totalUncompletedNum)
+    
     return {
       totalNum,
       totalCompletedNum,
@@ -65,8 +63,6 @@ const selectChosenes = selector({
       default:
         return search;
     }
-
-    
   },
 });
 
@@ -74,18 +70,12 @@ const List = (props) => {
 
   const [searchInput, setSearchInput] = useRecoilState(todoListSearch);
   const [selectView, setSelectView] = useRecoilState(selectViews);
-
   const [todoList, setTodoList] = useRecoilState(listStateMain);
-
   const searchResult = useRecoilValue(searchState);
   const searchResultWithSelect = useRecoilValue(selectChosenes);
-
   const stats = useRecoilValue(ListStats);
 
-  console.log(searchResult);
-  console.log(selectView);
-
-  let view = <Spinner sx={{margin: '0 auto',}}/>;
+  let view = <Spinner sx={{margin: '25% auto',}}/>;
 
   if (todoList.length > 0) {
     view = searchResultWithSelect.map((todoItem) => (

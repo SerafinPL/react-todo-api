@@ -30,8 +30,26 @@ export default   {
     primary: '#2ae37d',
     secondary: '#00cc47',
     secondaryDark: '#33ff7a',
-    muted: '#ead5d5'
+    muted: '#6a5f5f',
+    mess: '#e2f4df',
   },
+  forms: {
+    select: {
+      background: '#e2f4df',
+      
+    },
+    input: {
+      background: '#e2f4df',
+
+
+      '@media screen and (min-width: 1024px)': {
+        width: '50%',
+        float: 'left',
+      },
+
+    }
+  },
+ 
   buttons: {
     primary: {
       color: 'background',
@@ -40,8 +58,11 @@ export default   {
         bg: 'text',
       },
       width: '100%',
-      '@media screen and (min-width: 40em)': {
-        width: '50%',
+      '@media screen and (min-width: 500px)': {
+        width: 'max-content',
+        position: 'fixed',
+        bottom: '10px',
+        right: '10px',
       },
     },
     secondary: {
@@ -59,6 +80,20 @@ export default   {
       },
       width: '31.33%',
       margin: '1%'
+    },
+    add :{
+      color: 'background',
+      bg: 'primary',
+      '&:hover': {
+        bg: 'text',
+      },
+      width: '80%',
+      margin: '1%',
+
+      '@media screen and (min-width: 1024px)': {
+        width: '50%',
+        float: 'left',
+      },
     },
     cursor: 'pointer',
 

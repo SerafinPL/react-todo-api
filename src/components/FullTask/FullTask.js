@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import {atom, selector, useRecoilState, useRecoilValue} from 'recoil';
 
-import {Flex, Box,Input, Container, Checkbox, Text, Paragraph,Label,Button  } from 'theme-ui'
+import {Flex, Box,Input, Container, Checkbox, Text, Paragraph,Label,Button,Textarea  } from 'theme-ui'
 
 import axios from '../../axios';
  
@@ -109,6 +109,7 @@ const FullTask = ({task}) => {
                 alignItems: 'center',
                 flexDirection: 'column',
                 justifyContent: 'center',
+                padding: '20px'
               }}>
           <Label sx = {{
               
@@ -116,7 +117,7 @@ const FullTask = ({task}) => {
             }}
           >
             <Checkbox checked={check} onChange={event => setCheck(event.target.checked)}/>
-              <Input sx={{
+              <Textarea sx={{
                 flexGrow: 1,
               }} value={input} onChange={event => setInput(event.target.value)}/>
             

@@ -3,7 +3,7 @@ import {atom, selector, useRecoilState} from 'recoil';
 
 import axios from '../../axios';
 
- import { Flex,Container, Checkbox, Text, Label,Button, Spinner  } from 'theme-ui';
+ import { Flex,Container, Checkbox, Text, Label,Button, Spinner,Message  } from 'theme-ui';
 
 import {NavLink} from 'react-router-dom';
 
@@ -39,7 +39,7 @@ const Task = ({task}) => {
   }
 
   return(
-    	<Container  bg="muted">
+    	<Message  sx={{margin: 15}} bg="mess">
         <Label>
           <Checkbox checked={task.completed} onChange={event => clickCheckbox(event.target.checked)}/>
 
@@ -51,7 +51,7 @@ const Task = ({task}) => {
           
         </Label>
         
-      </Container>
+      </Message>
   );
 
 }
