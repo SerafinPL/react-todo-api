@@ -27,25 +27,26 @@ export default   {
   colors: {
     text: '#442929',
     background: '#fff',
-    primary: '#b2d732',
-    nextPrimary: '#2d2d2d',
-    secondary: '#2ae37d',
+    primary: '#4c8573',
+    nextPrimary: '#4444cf',
+    secondary: '#d8f3eb',
     secondaryDark: '#33ff7a',
-    muted: '#94b814',
-    mess: '#f7d4e3',
-    tasks:'#c31460',
+    muted: '#0e0e2f',
+    mess: '#d8f3eb',
+    tasks:'#0e0e2f',
+
   },
   forms: {
     select: {
-      bg: 'mess',
+      bg: 'secondary',
       
     },
     textarea: {
-      bg: 'mess',
+      bg: 'secondary',
       
     },
     input: {
-      bg: 'mess',
+      bg: 'secondary',
       marginRight: '10px',
 
       '@media screen and (min-width: 500px)': {
@@ -60,13 +61,11 @@ export default   {
  
   buttons: {
     primary: {
-      
-      
-      
-      color: 'nextPrimary',
+           
+      color: 'secondary',
       bg: 'primary',
       '&:hover': {
-        bg: 'nextPrimary',
+        bg: 'mess',
         color: 'primary',
       },
       width: '100%',
@@ -76,7 +75,7 @@ export default   {
         position: 'fixed',
         bottom: '10px',
         right: '10px',
-        height: '100px',
+        
       },
     },
     secondary: {
@@ -87,19 +86,20 @@ export default   {
       },
     },
     triple :{
-      color: 'background',
+      color: 'secondary',
       bg: 'primary',
       '&:hover': {
-        bg: 'text',
+        bg: 'mess',
+        color: 'primary',
       },
       width: '31.33%',
       margin: '1%'
     },
     add :{
-      color: 'nextPrimary',
+      color: 'secondary',
       bg: 'primary',
       '&:hover': {
-        bg: 'nextPrimary',
+        bg: 'mess',
         color: 'primary',
       },
       
