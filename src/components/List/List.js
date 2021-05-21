@@ -10,7 +10,7 @@ import {NavLink} from 'react-router-dom';
 
 import {Route, Switch, Redirect} from 'react-router-dom';
 
-import {listStateMain} from '../../recoliState';
+import {listStateMain, fatchData} from '../../recoliState';
 
 const todoListSearch = atom({
   key: 'todoListSearch',
@@ -71,13 +71,14 @@ const List = (props) => {
   const [searchInput, setSearchInput] = useRecoilState(todoListSearch);
   const [selectView, setSelectView] = useRecoilState(selectViews);
   const [todoList, setTodoList] = useRecoilState(listStateMain);
+  const [fetchData, setFetchData] = useRecoilState(fatchData);
   const searchResult = useRecoilValue(searchState);
   const searchResultWithSelect = useRecoilValue(selectChosenes);
   const stats = useRecoilValue(ListStats);
 
   let view = <Spinner sx={{margin: '25% auto',}}/>;
 
-  if (todoList.length > 0) {
+  if (fetchData) {
     view = searchResultWithSelect.map((todoItem) => (
       <Task  key={todoItem.id} task={todoItem} ></Task>
     ));

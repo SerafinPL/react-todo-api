@@ -9,7 +9,7 @@ import Navi from '../Navi/Navi';
 
 import {NavLink, Route,HashRouter, Switch, Redirect} from 'react-router-dom';
 
-import {listStateMain} from '../../recoliState';
+import {listStateMain, fatchData} from '../../recoliState';
 
 import { Button, Input, Spinner } from 'theme-ui';
 
@@ -22,6 +22,7 @@ const Main = () => {
 
 
 	const [todoList, setTodoList] = useRecoilState(listStateMain);
+	const [fetchData, setFetchData] = useRecoilState(fatchData);
 	const [reset, setReset] = useState(0);
   
   
@@ -47,7 +48,9 @@ const Main = () => {
       	
       } else {
       	setTodoList(data);
+
       }
+      setFetchData(true);
     })
     .catch(err => console.log(err));
 
