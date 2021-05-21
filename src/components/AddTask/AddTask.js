@@ -52,7 +52,7 @@ const AddTask = props => {
     	<Flex sx={{height: '100vh', flexDirection: 'column',  }} bg="muted">
         {redirect}
         
-        <Box sx={{height: '77px', padding: '5px', textAlign: 'center', borderBottom: '1px solid #442929', bg: 'nextPrimary'}}><Heading>Dodawanie zadania</Heading></Box>
+        <Box sx={{height: '77px', padding: '5px', textAlign: 'center', borderBottom: '1px solid #442929', bg: 'nextPrimary', color:'secondary'}}><Heading>Dodawanie zadania</Heading></Box>
         
         <Flex sx={{
                 flexGrow: 1,
@@ -62,7 +62,7 @@ const AddTask = props => {
               }}>
           {loading ? 
             <React.Fragment>  
-              <Spinner /><Text>Dodaje Zadanie</Text> 
+              <Spinner /><Text sx={{color:'secondary'}}>Dodaje Zadanie</Text> 
             </React.Fragment>  
             :
             <React.Fragment>  

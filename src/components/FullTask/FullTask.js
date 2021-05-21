@@ -103,7 +103,7 @@ const FullTask = ({task}) => {
   return(
     	<Flex sx={{height: '100vh', flexDirection: 'column'}} bg="muted">
         {redirect}
-        <Box sx={{height: '77px', padding: '5px', textAlign: 'center', borderBottom: '1px solid #442929', bg: 'nextPrimary'}}><Heading>Edycja zadania</Heading></Box>
+        <Box sx={{height: '77px', padding: '5px', textAlign: 'center', borderBottom: '1px solid #442929', bg: 'nextPrimary', color:'secondary'}}><Heading>Edycja zadania</Heading></Box>
         <Box sx={{
                 flexGrow: 1,
                 display: 'flex',
@@ -124,7 +124,7 @@ const FullTask = ({task}) => {
             
             
           </Label>
-          <Paragraph sx={{ alignSelf: 'end'}}>Ilość znaków: {count}</Paragraph>
+          <Paragraph sx={{ alignSelf: 'end', color:'secondary'}}>Ilość znaków: {count}</Paragraph>
         </Box>
         
         <Box>
