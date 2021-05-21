@@ -27,24 +27,26 @@ export default   {
   colors: {
     text: '#442929',
     background: '#fff',
-    primary: '#2ae37d',
-    secondary: '#00cc47',
+    primary: '#b2d732',
+    nextPrimary: '#2d2d2d',
+    secondary: '#2ae37d',
     secondaryDark: '#33ff7a',
-    muted: '#6a5f5f',
-    mess: '#e2f4df',
+    muted: '#94b814',
+    mess: '#f7d4e3',
+    tasks:'#c31460',
   },
   forms: {
     select: {
-      background: '#e2f4df',
+      bg: 'mess',
       
     },
     textarea: {
-      background: '#e2f4df',
+      bg: 'mess',
       
     },
     input: {
-      background: '#e2f4df',
-
+      bg: 'mess',
+      marginRight: '10px',
 
       '@media screen and (min-width: 500px)': {
         width: '75%',
@@ -53,20 +55,28 @@ export default   {
 
     }
   },
+  
+
  
   buttons: {
     primary: {
-      color: 'background',
+      
+      
+      
+      color: 'nextPrimary',
       bg: 'primary',
       '&:hover': {
-        bg: 'text',
+        bg: 'nextPrimary',
+        color: 'primary',
       },
       width: '100%',
+      height: 'auto',
       '@media screen and (min-width: 500px)': {
         width: 'max-content',
         position: 'fixed',
         bottom: '10px',
         right: '10px',
+        height: '100px',
       },
     },
     secondary: {
@@ -86,10 +96,11 @@ export default   {
       margin: '1%'
     },
     add :{
-      color: 'background',
+      color: 'nextPrimary',
       bg: 'primary',
       '&:hover': {
-        bg: 'text',
+        bg: 'nextPrimary',
+        color: 'primary',
       },
       
       margin: '1%',

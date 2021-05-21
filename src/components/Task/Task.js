@@ -43,9 +43,9 @@ const Task = ({task}) => {
         <Label>
           <Checkbox checked={task.completed} onChange={event => clickCheckbox(event.target.checked)}/>
 
-          <NavLink style={{textDecoration: 'none', color: '#442929'}} to={'/'+task.id} >
+          <NavLink style={{textDecoration: 'none'}} to={'/'+task.id} >
             <Text sx={{
-              flexGrow: 1,
+              flexGrow: 1, color: 'tasks'
             }}>{task.title}</Text>
           </NavLink>
           

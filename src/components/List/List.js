@@ -87,14 +87,14 @@ const List = (props) => {
 
   return(
   	<Flex sx={{ flexDirection: 'column', height: '100vh', position: 'fixed', width: '100vw',}} bg="muted">
-      <Box sx={{padding: '5px', textAlign: 'right', borderBottom: '1px solid #442929', bg: 'primary'}}>
+      <Box sx={{padding: '5px', textAlign: 'right', borderBottom: '1px solid #442929', bg: 'nextPrimary'}}>
         <Input placeholder='Wyszukaj' value={searchInput} onChange={event => setSearchInput(event.target.value)}/>
         <Select value={selectView} onChange={(event) => {setSelectView(event.target.value)}}>
           <option>Wszystkie</option>
           <option>Wykonane</option>
           <option>Niewykonane</option>
         </Select>
-        <Paragraph>{`Wykonane: ${stats.totalCompletedNum} / Niewykonane ${stats.totalUncompletedNum}`}</Paragraph>
+        <Paragraph sx={{ color: 'mess'}}>{`Wykonane: ${stats.totalCompletedNum} / Niewykonane ${stats.totalUncompletedNum}`}</Paragraph>
       </Box>
       <Box sx={{ flexGrow: 1, overflowY: 'auto', textAlign: 'center'}}>
         {view}
