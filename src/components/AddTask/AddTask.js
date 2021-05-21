@@ -1,4 +1,4 @@
-import React, { useState} from 'react'
+import React, { useState,useRef, useEffect} from 'react'
 import {useSetRecoilState} from 'recoil';
 
 import axios from '../../axios';
@@ -13,11 +13,17 @@ import {listStateMain} from '../../recoliState';
 
 const AddTask = props => {
 
+  const inputRef = useRef(null);
+
   const setTodoList = useSetRecoilState(listStateMain);
 
   const [input, setInput] = useState('');
   const [redirect, setRedirect] = useState(null);
   const [loading, setloading] = useState(false);
+
+  useEffect(() => {
+    inputRef.current.focus();
+  },[]);
 
   const createToDo = () => {
     if (input !== '') {
@@ -66,7 +72,7 @@ const AddTask = props => {
             </React.Fragment>  
             :
             <React.Fragment>  
-              <Input sx={{width:'80%',}} value={input} onChange={(event) => setInput(event.target.value)} />
+              <Input ref={inputRef} sx={{width:'80%',}} value={input} onChange={(event) => setInput(event.target.value)} />
               <Button variant='add' onClick={() => createToDo()}>Dodaj zadanie</Button>
             </React.Fragment>}
         </Flex>

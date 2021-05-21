@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect, useState, useRef} from 'react'
 import {atom, selector, useRecoilState, useRecoilValue} from 'recoil';
 
 import {Flex, Box, Checkbox, Paragraph,Label,Button,Textarea,Heading  } from 'theme-ui'
@@ -27,7 +27,7 @@ const charCountState = selector({
 
 const FullTask = ({task}) => {
 
-
+  const textareaRef = useRef(null);
 
   const [todoList, setTodoList] = useRecoilState(listStateMain);
   const index = todoList.findIndex((listItem) => listItem === task);
@@ -40,6 +40,9 @@ const FullTask = ({task}) => {
     setInput(task.title);
   },[setInput, task.title])
 
+   useEffect(() => {
+    textareaRef.current.focus();
+  },[]);
   
 
   const saveChange = () => {
@@ -103,7 +106,7 @@ const FullTask = ({task}) => {
             }}
           >
             <Checkbox checked={check} onChange={event => setCheck(event.target.checked)}/>
-              <Textarea sx={{
+              <Textarea ref={textareaRef} sx={{
                 flexGrow: 1,
               }} value={input} onChange={event => setInput(event.target.value)}/>
             
