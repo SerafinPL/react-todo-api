@@ -1,9 +1,9 @@
-import React, {useEffect, Suspense} from 'react'
-import {atom, selector, useRecoilState} from 'recoil';
+import React from 'react'
+import {useRecoilState} from 'recoil';
 
 import axios from '../../axios';
 
- import { Flex,Container, Checkbox, Text, Label,Button, Spinner,Message  } from 'theme-ui';
+ import {  Checkbox, Text, Label, Message  } from 'theme-ui';
 
 import {NavLink} from 'react-router-dom';
 

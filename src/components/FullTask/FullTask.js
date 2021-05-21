@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import {atom, selector, useRecoilState, useRecoilValue} from 'recoil';
 
-import {Flex, Box,Input, Container, Checkbox, Text, Paragraph,Label,Button,Textarea,Heading  } from 'theme-ui'
+import {Flex, Box, Checkbox, Paragraph,Label,Button,Textarea,Heading  } from 'theme-ui'
 
 import axios from '../../axios';
  
@@ -38,24 +38,9 @@ const FullTask = ({task}) => {
 
   useEffect(() => {
     setInput(task.title);
-  },[])
+  },[setInput, task.title])
 
-  const clickCheckbox = (checked) => {
-    
-    const newList = replaceItemAtIndex(todoList, index, {
-      ...task,
-      completed: checked,
-    });
-
-    setTodoList(newList);
-    
-    axios.put('/todos/'+task.id , {"completed":checked, "title":task.title, "user_id":"1292" })
-    .then(res => {
-      console.log(res);
-          
-    })
-    .catch(err => console.log(err));
-  }
+  
 
   const saveChange = () => {
 

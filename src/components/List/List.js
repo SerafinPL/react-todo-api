@@ -1,14 +1,14 @@
-import React, {useEffect,Suspense,useState} from 'react'
+import React from 'react'
 import {atom, selector, useRecoilState, useRecoilValue} from 'recoil';
 
-import { Flex,Box, Container, Checkbox, Text, Label,Button, Spinner, Input,Paragraph, Select ,Message } from 'theme-ui'
+import { Flex,Box, Button, Spinner, Input,Paragraph, Select  } from 'theme-ui'
 import Task from '../Task/Task';
  
-import axios from '../../axios';
+
 
 import {NavLink} from 'react-router-dom';
 
-import {Route, Switch, Redirect} from 'react-router-dom';
+
 
 import {listStateMain, fatchData} from '../../recoliState';
 
@@ -70,9 +70,9 @@ const List = (props) => {
 
   const [searchInput, setSearchInput] = useRecoilState(todoListSearch);
   const [selectView, setSelectView] = useRecoilState(selectViews);
-  const [todoList, setTodoList] = useRecoilState(listStateMain);
-  const [fetchData, setFetchData] = useRecoilState(fatchData);
-  const searchResult = useRecoilValue(searchState);
+  
+  const fetchData = useRecoilValue(fatchData);
+  
   const searchResultWithSelect = useRecoilValue(selectChosenes);
   const stats = useRecoilValue(ListStats);
 
