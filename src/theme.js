@@ -11,8 +11,8 @@ export default  {
     512
   ],
   fonts: {
-    body: 'Inter, sans-serif',
-    heading: 'Verdana, sans-serif',
+    body: 'geomanistregular, sans-serif',
+    heading: 'geomanistregular, sans-serif',
     monospace: 'Menlo, monospace'
   },
   fontWeights: {
@@ -39,29 +39,38 @@ export default  {
   forms: {
     select: {
       bg: 'secondary',
+      fontFamily: 'body',
       
     },
     textarea: {
       bg: 'secondary',
+      fontFamily: 'body',
       
     },
     input: {
       bg: 'secondary',
       marginRight: '10px',
+      fontFamily: 'body',
 
       '@media screen and (min-width: 500px)': {
         width: '75%',
         float: 'left',
       },
 
+    },
+    checkbox: {
+      cursor: 'pointer',
     }
+
   },
   
 
  
   buttons: {
+    
     primary: {
-           
+      fontFamily: 'body',
+      cursor: 'pointer',  
       color: 'secondary',
       bg: 'primary',
       '&:hover': {
@@ -79,6 +88,8 @@ export default  {
       },
     },
     secondary: {
+      fontFamily: 'body',
+      cursor: 'pointer',
       color: 'background',
       bg: 'secondary',
       '&:hover': {
@@ -86,6 +97,8 @@ export default  {
       },
     },
     triple :{
+      fontFamily: 'body',
+      cursor: 'pointer',
       color: 'secondary',
       bg: 'primary',
       '&:hover': {
@@ -96,6 +109,8 @@ export default  {
       margin: '1%'
     },
     add :{
+      fontFamily: 'body',
+      cursor: 'pointer',
       color: 'secondary',
       bg: 'primary',
       '&:hover': {
@@ -109,13 +124,14 @@ export default  {
         
       },
     },
-    cursor: 'pointer',
+    
 
   },
 
   a: {
       color: '#000',
-      textDecoration: 'none'
+      textDecoration: 'none',
+      fontFamily: 'body',
     },
   styles: {
     root: {
