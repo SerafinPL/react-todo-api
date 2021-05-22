@@ -72,16 +72,21 @@ const List = (props) => {
   const [selectView, setSelectView] = useRecoilState(selectViews);
   
   const fetchData = useRecoilValue(fatchData);
-  
+  const result = useRecoilValue(listStateMain);
   const searchResultWithSelect = useRecoilValue(selectChosenes);
   const stats = useRecoilValue(ListStats);
 
   let view = <Spinner sx={{margin: '25% auto',}}/>;
 
   if (fetchData) {
-    view = searchResultWithSelect.map((todoItem) => (
-      <Task  key={todoItem.id} task={todoItem} ></Task>
-    ));
+    if (result.length) {
+
+      view = searchResultWithSelect.map((todoItem) => (
+        <Task  key={todoItem.id} task={todoItem} ></Task>
+      ));
+    } else {
+      view = <Paragraph sx={{color: 'mess'}}> Brak zadań do wyświetlenia, dodaj nowe.</Paragraph>
+    }
 
   }
 
@@ -96,7 +101,7 @@ const List = (props) => {
         </Select>
         <Paragraph sx={{ color: 'mess'}}>{`Wykonane: ${stats.totalCompletedNum} / Niewykonane ${stats.totalUncompletedNum}`}</Paragraph>
       </Box>
-      <Box sx={{ flexGrow: 1, overflowY: 'auto', textAlign: 'center'}}>
+      <Box sx={{ flexGrow: 1, overflowY: 'auto', textAlign: 'center', display: 'flex', flexDirection: 'column' }}>
         {view}
       </Box>
       <Box>
