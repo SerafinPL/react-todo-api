@@ -25,6 +25,15 @@ const AddTask = props => {
     inputRef.current.focus();
   },[]);
 
+  const onEnter = (event) => {
+  
+    if (event.keyCode === 13) {
+      createToDo();
+    }
+  } 
+
+  
+
   const createToDo = () => {
     if (input !== '') {
       setloading(true);
@@ -72,8 +81,8 @@ const AddTask = props => {
             </React.Fragment>  
             :
             <React.Fragment>  
-              <Input ref={inputRef} sx={{width:'80%',}} value={input} onChange={(event) => setInput(event.target.value)} />
-              <Button variant='add' onClick={() => createToDo()}>Dodaj zadanie</Button>
+              <Input ref={inputRef} sx={{width:'80%',}} value={input} onChange={(event) => setInput(event.target.value)} onKeyDown={onEnter}/>
+              <Button variant='add' onClick={createToDo}>Dodaj zadanie</Button>
             </React.Fragment>}
         </Flex>
         <Flex>

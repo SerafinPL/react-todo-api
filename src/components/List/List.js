@@ -68,6 +68,7 @@ const selectChosenes = selector({
 
 const List = (props) => {
 
+  
   const [searchInput, setSearchInput] = useRecoilState(todoListSearch);
   const [selectView, setSelectView] = useRecoilState(selectViews);
   

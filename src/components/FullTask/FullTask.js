@@ -44,6 +44,12 @@ const FullTask = ({task}) => {
     textareaRef.current.focus();
   },[]);
   
+  const onEnter = (event) => {
+  
+    if (event.keyCode === 13) {
+      saveChange();
+    }
+  } 
 
   const saveChange = () => {
 
@@ -108,7 +114,9 @@ const FullTask = ({task}) => {
             <Checkbox checked={check} onChange={event => setCheck(event.target.checked)}/>
               <Textarea ref={textareaRef} sx={{
                 flexGrow: 1,
-              }} value={input} onChange={event => setInput(event.target.value)}/>
+              }} value={input} onChange={event => setInput(event.target.value)}
+              onKeyDown={onEnter}
+              />
             
             
           </Label>
