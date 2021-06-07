@@ -92,7 +92,7 @@ const List = (props) => {
   }
 
   return(
-  	<Flex sx={{ flexDirection: 'column', height: '100vh', position: 'fixed', width: '100vw',}} bg="muted">
+  	<Flex sx={{ flexDirection: 'column', height: '100vh', position: 'fixed', width: '100vw', maxHeight: '-webkit-fill-available'}} bg="muted">
       <Box sx={{padding: '5px', textAlign: 'right', borderBottom: '1px solid #442929', bg: 'nextPrimary'}}>
         <Input placeholder='Wyszukaj' value={searchInput} onChange={event => setSearchInput(event.target.value)}/>
         <Select value={selectView} onChange={(event) => {setSelectView(event.target.value)}}>
