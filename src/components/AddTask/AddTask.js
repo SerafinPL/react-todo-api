@@ -64,7 +64,7 @@ const AddTask = props => {
   console.log(loading)
 
   return(
-    	<Flex sx={{height: '100vh', flexDirection: 'column',  }} bg="muted">
+    	<Flex sx={{height: '100%', flexDirection: 'column', maxHeight: '-webkit-fill-available' }} bg="muted">
         {redirect}
         
         <Box sx={{height: '77px', padding: '5px', textAlign: 'center', borderBottom: '1px solid #442929', bg: 'nextPrimary', color:'secondary'}}><Heading>Dodawanie zadania</Heading></Box>
