@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/react-todo-api/static/css/main.a1c206e7.chunk.css",
-    "main.js": "/react-todo-api/static/js/main.ada9fc9b.chunk.js",
-    "main.js.map": "/react-todo-api/static/js/main.ada9fc9b.chunk.js.map",
-    "runtime-main.js": "/react-todo-api/static/js/runtime-main.0e17c61b.js",
-    "runtime-main.js.map": "/react-todo-api/static/js/runtime-main.0e17c61b.js.map",
+    "main.css": "/react-todo-api/static/css/main.a2a9494e.chunk.css",
+    "main.js": "/react-todo-api/static/js/main.50081a4a.chunk.js",
+    "main.js.map": "/react-todo-api/static/js/main.50081a4a.chunk.js.map",
+    "runtime-main.js": "/react-todo-api/static/js/runtime-main.0a745788.js",
+    "runtime-main.js.map": "/react-todo-api/static/js/runtime-main.0a745788.js.map",
     "static/js/2.bc386580.chunk.js": "/react-todo-api/static/js/2.bc386580.chunk.js",
     "static/js/2.bc386580.chunk.js.map": "/react-todo-api/static/js/2.bc386580.chunk.js.map",
-    "static/js/3.b9d1874e.chunk.js": "/react-todo-api/static/js/3.b9d1874e.chunk.js",
-    "static/js/3.b9d1874e.chunk.js.map": "/react-todo-api/static/js/3.b9d1874e.chunk.js.map",
-    "static/js/4.fcbc5c84.chunk.js": "/react-todo-api/static/js/4.fcbc5c84.chunk.js",
-    "static/js/4.fcbc5c84.chunk.js.map": "/react-todo-api/static/js/4.fcbc5c84.chunk.js.map",
+    "static/js/3.a2bea7b1.chunk.js": "/react-todo-api/static/js/3.a2bea7b1.chunk.js",
+    "static/js/3.a2bea7b1.chunk.js.map": "/react-todo-api/static/js/3.a2bea7b1.chunk.js.map",
+    "static/js/4.c6ff682a.chunk.js": "/react-todo-api/static/js/4.c6ff682a.chunk.js",
+    "static/js/4.c6ff682a.chunk.js.map": "/react-todo-api/static/js/4.c6ff682a.chunk.js.map",
     "index.html": "/react-todo-api/index.html",
-    "static/css/main.a1c206e7.chunk.css.map": "/react-todo-api/static/css/main.a1c206e7.chunk.css.map",
+    "static/css/main.a2a9494e.chunk.css.map": "/react-todo-api/static/css/main.a2a9494e.chunk.css.map",
     "static/js/2.bc386580.chunk.js.LICENSE.txt": "/react-todo-api/static/js/2.bc386580.chunk.js.LICENSE.txt",
     "static/media/index.css": "/react-todo-api/static/media/geomanist-regular-webfont.260f60c2.woff2"
   },
   "entrypoints": [
-    "static/js/runtime-main.0e17c61b.js",
+    "static/js/runtime-main.0a745788.js",
     "static/js/2.bc386580.chunk.js",
-    "static/css/main.a1c206e7.chunk.css",
-    "static/js/main.ada9fc9b.chunk.js"
+    "static/css/main.a2a9494e.chunk.css",
+    "static/js/main.50081a4a.chunk.js"
   ]
 }
