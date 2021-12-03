@@ -35,11 +35,11 @@ const AddTask = (props) => {
     if (input !== "") {
       setloading(true);
       axios
-        .post("/users/2373/todos", {
+        .post("/users/1000/todos", {
           user: 'KubaKoder',
-          status: "false",
+          status: "pending",
           title: input,
-          user_id: "2373",
+          user_id: "1000",
           
           
         })
