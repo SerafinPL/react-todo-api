@@ -71,7 +71,7 @@ const AddTask = (props) => {
   return (
     <Flex
       sx={{
-        height: "100%",
+        height: "100vh",
         flexDirection: "column",
         maxHeight: "-webkit-fill-available",
       }}
