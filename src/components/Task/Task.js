@@ -18,15 +18,17 @@ const Task = ({task}) => {
   const index = todoList.findIndex((listItem) => listItem === task);
   
   const clickCheckbox = (checked) => {
-    
+    console.log(task)
     const newList = replaceItemAtIndex(todoList, index, {
       ...task,
       completed: checked,
     });
 
     setTodoList(newList);
+
     
-    axios.put('/todos/'+task.id , {"completed":checked, "title":task.title, "user_id":"1292" })
+    
+    axios.put('/todos/'+task.id , {status: checked ? 'completed' : 'pending', title:task.title, user_id:"1000", user: 'KubaKoder', })
     .then(res => {
       console.log(res);
           

@@ -37,7 +37,7 @@ const AddTask = (props) => {
       axios
         .post("/users/1000/todos", {
           user: 'KubaKoder',
-          status: "pending",
+          status: "completed",
           title: input,
           user_id: "1000",
           
@@ -60,7 +60,7 @@ const AddTask = (props) => {
           setRedirect(<Redirect to="/" />);
         })
         .catch((err) => {
-          console.log(err);
+          console.log('errorAddTask: ', err);
           setloading(false);
         });
     }

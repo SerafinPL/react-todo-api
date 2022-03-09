@@ -61,7 +61,7 @@ const FullTask = ({task}) => {
 
     setTodoList(newList);
 
-    axios.put('/todos/'+task.id , {"completed": check, "title":input, "user_id":"1292" })
+    axios.put('/todos/'+task.id , {status: check ? 'completed' : 'pending', title:input, user_id:"1000", user: 'KubaKoder', })
     .then(res => {
       console.log(res);
           
