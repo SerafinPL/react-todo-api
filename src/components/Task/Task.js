@@ -11,23 +11,27 @@ import {listStateMain} from '../../recoliState';
 
 const Task = ({task}) => {
 
-  
+  const firstTime = false
+
+
+
+
   
 
   const [todoList, setTodoList] = useRecoilState(listStateMain);
   const index = todoList.findIndex((listItem) => listItem === task);
   
   const clickCheckbox = (checked) => {
-    console.log(task)
+
     const newList = replaceItemAtIndex(todoList, index, {
       ...task,
-      completed: checked,
+      status: checked ? 'completed' : 'pending',
+      
     });
 
     setTodoList(newList);
 
-    
-    
+       
     axios.put('/todos/'+task.id , {status: checked ? 'completed' : 'pending', title:task.title, user_id:"1000", user: 'KubaKoder', })
     .then(res => {
       console.log(res);
@@ -40,10 +44,12 @@ const Task = ({task}) => {
     return [...arr.slice(0, index), newValue, ...arr.slice(index + 1)];
   }
 
+  console.log(task.status)
+
   return(
     	<Message  sx={{margin: 15}} bg="mess">
         <Label>
-          <Checkbox checked={task.completed} onChange={event => clickCheckbox(event.target.checked)}/>
+          <Checkbox checked={task.status === 'completed' ? true : false} onChange={event => clickCheckbox(event.target.checked)}/>
 
           <NavLink style={{textDecoration: 'none'}} to={'/'+task.id} >
             <Text sx={{
