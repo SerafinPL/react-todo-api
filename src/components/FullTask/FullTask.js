@@ -57,6 +57,7 @@ const FullTask = ({task}) => {
       ...task,
       title: input,
       completed: check,
+      status: check ? 'completed' : 'pending'
     });
 
     setTodoList(newList);
