@@ -104,6 +104,7 @@ const List = (props) => {
       </Box>
       <Box sx={{ flexGrow: 1, overflowY: 'auto', textAlign: 'center', display: 'flex', flexDirection: 'column' }}>
         {view}
+        
       </Box>
       <Box>
         <NavLink to='/newtask' 
